@@ -1,5 +1,11 @@
 <ion-view view-title="Transactions">
   <ion-content>
+    <div class="row">
+      <h2 class="col col-100 button button-clear button-light" 
+          ng-show="transactions.length === 0">
+          The list is empty...
+      </h2>
+    </div>
     <div class="list">
       <a class="item" ui-sref="edit({id: t.id})" ng-repeat="t in transactions">
         <h2>{{t.title}}</h2>
