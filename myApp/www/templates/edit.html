@@ -1,0 +1,18 @@
+<ion-view view-title="Transaction details">
+  <ion-content>
+    <div class="card">
+      <div class="item item-input">
+        <input type="text" placeholder="Title" ng-model="transaction.title" />
+      </div>
+      <div class="item item-input">
+        <input type="number" placeholder="Amount" ng-model="transaction.amount">
+      </div>
+      <div class="item">
+        <textarea rows="5" placeholder="Description" style="width: 100%" ng-model="transaction.description"></textarea>
+      </div>
+    </div>
+    <div class="padding">
+      <button class="button button-block" ng-click="save()">Save Transaction</button
+    </div>
+  </ion-content>
+</ion-view>
