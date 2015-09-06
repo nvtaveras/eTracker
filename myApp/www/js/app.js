@@ -25,72 +25,28 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   $urlRouterProvider.otherwise('/list');
 }]);
 
-var transactions = [
-  {
-    id:          '0',
-    title:       'My first transaction',
-    description: 'Bacon ipsum dolor amet pancetta biltong jerky pastrami filet mignon.',
-    amount:      23495.12
-  },
-  {
-    id:          '1',
-    title:       'My second transaction',
-    description: 'Bacon ipsum dolor amet pancetta biltong jerky pastrami filet mignon.',
-    amount:      123.45
-  },
-  {
-    id:          '2',
-    title:       'My third transaction',
-    description: 'Bacon ipsum dolor amet pancetta biltong jerky pastrami filet mignon.',
-    amount:      123456789.99
-  }
-];
-
-var get = function(id){
-  for(var i = 0; i < transactions.length; ++i){
-    if(transactions[i].id == id){
-      return transactions[i];
-    }
-  }
-};
-
-var update = function(transaction){
-  for(var i = 0; i < transactions.length; ++i){
-    if(transactions[i].id == transaction.id){
-      transactions[i] = transaction;
-      return ;
-    }
-  }
-};
-
-var add = function(transaction){
-  transactions.push(transaction);
-};
-
-app.controller('FirstCtrl', ['$scope', '$log', function($scope, $log){
-  $scope.transactions = transactions;
-  $scope.fn = function(transaction){
-  };
+app.controller('FirstCtrl', ['$scope', 'TransactionsService', function($scope, TransactionsService){
+  $scope.transactions = TransactionsService.getAll();
 }]);
 
-app.controller('EditCtrl', ['$scope', '$state', function($scope, $state){
+app.controller('EditCtrl', ['$scope', '$state', 'TransactionsService', function($scope, $state, TransactionsService){
   var id = $state.params.id;
-  $scope.transaction = get(id);
+  $scope.transaction = TransactionsService.get(id);
   $scope.save = function(){
-    update($scope.transaction);
+    TransactionsService.update($scope.transaction);
     $state.go('list');
   };
 }]);
 
-app.controller('AddCtrl', ['$scope', '$state', function($scope, $state){
+app.controller('AddCtrl', ['$scope', '$state', 'TransactionsService', function($scope, $state, TransactionsService){
   $scope.transaction = {
-    id:          transactions.length,
+    id:          '',
     title:       '',
     description: '',
     amount:      ''
   };
   $scope.save = function(){
-    add($scope.transaction);
+    TransactionsService.add($scope.transaction);
     $state.go('list');
   };
 }]);
