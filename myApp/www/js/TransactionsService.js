@@ -9,7 +9,6 @@ app.factory('TransactionsService', [function(){
     add : function(transaction){
       transaction.id = transactions.length;
       transactions.push(transaction);
-      console.log(transaction);
     },
     getAll : function(){
       return transactions;
