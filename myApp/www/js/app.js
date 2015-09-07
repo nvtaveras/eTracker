@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
   $stateProvider.state('list', {
     url:         '/list',
-    controller:  'FirstCtrl',
+    controller:  'ListCtrl',
     templateUrl: 'templates/list.html'
   });
 
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   $urlRouterProvider.otherwise('/list');
 }]);
 
-app.controller('FirstCtrl', ['$scope', 'TransactionsService', function($scope, TransactionsService){
+app.controller('ListCtrl', ['$scope', 'TransactionsService', function($scope, TransactionsService){
   $scope.transactions = TransactionsService.getAll();
   $scope.delete = function(index){
     TransactionsService.delete(index);
