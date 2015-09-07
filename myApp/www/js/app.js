@@ -27,6 +27,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 app.controller('FirstCtrl', ['$scope', 'TransactionsService', function($scope, TransactionsService){
   $scope.transactions = TransactionsService.getAll();
+  $scope.delete = function(index){
+    TransactionsService.delete(index);
+  };
 }]);
 
 app.controller('EditCtrl', ['$scope', '$state', 'TransactionsService', function($scope, $state, TransactionsService){

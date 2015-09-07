@@ -28,6 +28,9 @@ app.factory('TransactionsService', [function(){
           return ;
         }
       }
+    },
+    delete : function(id){
+      transactions.splice(id, 1);
     }
   }
 }]);
