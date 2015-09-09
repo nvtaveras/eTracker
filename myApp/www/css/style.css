@@ -1,0 +1,12 @@
+h3.amount{
+	float: right;
+	font-family: 'Helvetica'
+}
+
+.income{
+	color: green;
+}
+
+.expense{
+	color: red;
+}
