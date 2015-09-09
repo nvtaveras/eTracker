@@ -4,6 +4,15 @@
       <div class="item item-input">
         <input type="text" placeholder="Title" ng-model="transaction.title" />
       </div>
+      <div class="item item-input item-select" style="border-bottom: 1px">
+        <div class="input-label">
+          Type
+        </div>
+        <select name="typeSelect" ng-model="transaction.type">
+          <option value="1">Income</option>
+          <option value="0">Expense</option>
+        </select>
+      </div>
       <div class="item item-input">
         <input type="number" placeholder="Amount" ng-model="transaction.amount">
       </div>

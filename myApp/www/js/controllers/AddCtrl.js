@@ -6,6 +6,7 @@ var app = angular.module('eTracker');
 app.controller('AddCtrl', ['$scope', '$state', 'TransactionsService', function($scope, $state, TransactionsService){
   $scope.transaction = {
     id:          '',
+    type:        '1',
     title:       '',
     description: '',
     amount:      ''
