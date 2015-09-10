@@ -7,6 +7,20 @@ app.factory('TransactionsService', [function(){
 
   var store = window.localStorage;
   var transactions = angular.fromJson(store['transactions']) || [];
+  var categories = [
+    'Paycheck',
+    'Investment',
+    'Bonus',
+    'Entertainment',
+    'Education',
+    'Shopping',
+    'Personal Care',
+    'Health & Fitness',
+    'Food & Drinks',
+    'Auto & Transportation',
+    'Travel'
+  ];
+
   var persist = function(){
     store['transactions'] = angular.toJson(transactions);
   };
@@ -38,6 +52,9 @@ app.factory('TransactionsService', [function(){
     delete : function(id){
       transactions.splice(id, 1);
       persist();
+    },
+    getCategories : function(type){
+      return categories;
     }
   }
 }]);

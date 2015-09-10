@@ -13,6 +13,13 @@
           <option value="0">Expense</option>
         </select>
       </div>
+      <div class="item item-input item-select" style="border-bottom: 1px">
+        <div class="input-label">
+          Category
+        </div>
+        <select name="categorySelect" ng-model="transaction.category" ng-options="cat for cat in categories">
+        </select>
+      </div>
       <div class="item item-input">
         <input type="number" placeholder="Amount" ng-model="transaction.amount">
       </div>
